@@ -87,12 +87,11 @@ def k_max_profit(k, prices):
 
     table = [[0] * len(prices)]
 
-    # table represents the max profit up until prices[j] using at most i transactions.
+    # table[i, j]代表了在前j天操作i次的最大收益
     # table[i, j] = max(table[i][ j - 1], prices[j] - prices[some] + table[i - 1, some])
-    # 即前者表示table[i, j]不包含prices[j]的情况，后者表示包含prices[j]的情况（some可为1到j-1的任意值）
-    #  max_some = arg max(dp[i - 1, some] - prices[some]))
-    # 即在计算包含prices[j]的情况时，需要寻找(dp[i - 1, some] - prices[some])的最大值，max_some为取最大值时same的值
-    # 从而计算出table[i, j]
+    # max函数中的前者表示第j天不交易的情况，后者表示第j天交易的情况（some可为1到j-1的任意值）
+    #  max_some = arg max(table[i - 1, some] - prices[some]))
+    # 在计算后者时，需要寻找(table[i - 1, some] - prices[some])的最大值，max_some为取最大值时same的值
 
     for i in range(1, k + 1):
         element_table = [0]
