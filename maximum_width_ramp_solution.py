@@ -8,7 +8,6 @@ def max_width_ramp(A):
     i = len(heads) - 1
     j = len(A) - 1
     result = 0
-    print(heads)
     # 如果A[j] < A[head]，则j-=1，否则满足了条件A[j]>=A[i]；此时如果还满足j > i则计算一次结果，否则i-=1
     while i >= 0:
         if A[heads[i]] <= A[j]:
