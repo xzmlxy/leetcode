@@ -121,13 +121,3 @@ class Answer:
             result = min(min_var, temp2)
         return result
 
-
-chessboard_string_test = "1 1 1 1 1 1 1 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1" \
-                         " 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 0 3"
-cut_number = 2
-answer = 1.633
-Answer1 = Answer(chessboard_string_test, cut_number)
-
-time_start = time.time()
-print(Answer1.count_min_variance())
-print(time.time() - time_start)
