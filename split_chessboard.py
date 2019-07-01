@@ -1,5 +1,4 @@
 import numpy as np
-import time
 
 
 # 有一个棋盘（8*8），棋盘每格存在一个数字（用二维数组chessboard表示），经cut次切割后分为cut+1个矩形，求这n+1个矩阵的最小均方差
@@ -10,18 +9,9 @@ class Answer:
     length = 8
 
     def __init__(self, chessboard, cut):
-        self.rectangles = []
-        for i in range(0, Answer.length):
-            temp1 = []
-            for j in range(0, Answer.length):
-                temp2 = []
-                for k in range(0, Answer.length + 1):
-                    temp3 = []
-                    for l in range(0, Answer.length + 1):
-                        temp3.append({})
-                    temp2.append(temp3)
-                temp1.append(temp2)
-            self.rectangles.append(temp1)
+        self.rectangles = [
+            [[[{} for l in range(Answer.length + 1)] for k in range(Answer.length + 1)] for j in range(Answer.length)]
+            for i in range(Answer.length)]
         self.cut = cut
         if isinstance(chessboard, str):
             self.chessboard = Answer.pretreatment(chessboard)
@@ -120,4 +110,3 @@ class Answer:
         if temp2 is not None:
             result = min(min_var, temp2)
         return result
-
